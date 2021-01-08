@@ -6,17 +6,12 @@ function getApp() {
 
 }
 
-function getAnime(anime) {
+async function getAnime(anime) {
 
-    fetch(`${API_BASE}search/anime?q=${anime}`)
-        .then(responses => {
-            return responses.json();
-        })
-        .then(data => {
-            
-            console.log(data);
+    let response = await fetch(`${API_BASE}search/anime?q=${anime}`);
+    let data = await response.json();
 
-        });
+    return data;
 
 }
 

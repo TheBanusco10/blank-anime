@@ -4,8 +4,8 @@ function animesDeTemporadaVista(animes) {
 
     animes.forEach(element => {
 
-        let puntuacion = element.score ? element.score.toFixed(1) : '?';
-        let episodios =  element.episodes ? element.episodes : 'Desconocidos'
+        let puntuacion = element.score ? element.score.toFixed(1) : 'N/A';
+        let episodios =  element.episodes ? `${element.episodes} episodios` : 'N / A'
 
         contenido +=  `
     
@@ -14,9 +14,9 @@ function animesDeTemporadaVista(animes) {
                     <img src="${element.image_url}" alt="${element.title}">
                     <p class="puntuacion">${puntuacion}</p>
                 </div>
-                <p class="titulo"><a href="${element.url}" target="_blank">${element.title}</a></p>
+                <p class="titulo"><a href="view.html?anime=${element.title}" target="_self">${element.title}</a></p>
                 <p class="sinopsis">${element.synopsis}</p>
-                <p class="episodios">${episodios} episodios</p>
+                <p class="episodios">${episodios}</p>
             </div>
 
             `;
@@ -26,6 +26,34 @@ function animesDeTemporadaVista(animes) {
 
     return contenido;
 
+}
+
+function mostrarAnimeVista(anime) {
     
+    let {image_url, title, synopsis, type, score, airing, rated} = anime;
+
+    airing = airing ? 'En emisión' : 'Finalizado';
+
+    // TODO Mostrar género también
+    return `
+
+        <div class="four columns">
+            <img src="${image_url}" alt="${title}">
+                <div class="subImagen">
+                    <p>${type}</p>
+                    <p>${score}</p>
+                    <p><a href="https://myanimelist.net/info.php?go=mpaa" target="_blank">${rated}</a></p> 
+                    <p>${airing}</p>
+                </div>
+            </div>
+            <div class="eight columns">
+                <p class="titulo">${title}</p>
+                <p class="sinopsis">${synopsis}</p>
+        </div>
+    
+    
+    `; 
+
+
 
 }

@@ -1,0 +1,22 @@
+.subImagen {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+.subImagen p {
+    width: 50%;
+
+    text-align: left;
+
+    font-weight: bold;
+}
+
+.titulo {
+
+    font-size: 30px;
+
+    border-bottom: 1px solid rgba(128, 128, 128, 0.438);
+
+}
