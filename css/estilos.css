@@ -1,0 +1,17 @@
+.text-center {
+    text-align: center;
+}
+
+#imagenCargar {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+}
+
+#imagenCargar img {
+    width: 60px;
+}
