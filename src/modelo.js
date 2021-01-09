@@ -37,6 +37,7 @@ function getAnimeTemporada() {
             numPaginas = Math.ceil(data.anime.length / MAX_ANIMES);
 
             paginaActual = new URLSearchParams(window.location.search).get('pagina');
+            if (!paginaActual) paginaActual = 1;
             paginaActual = parseInt(paginaActual);
 
             paginaAnterior = paginaActual - 1;
