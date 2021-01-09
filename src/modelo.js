@@ -1,4 +1,14 @@
 const API_BASE = 'https://api.jikan.moe/v3/';
+const MAX_ANIMES = 6;
+
+// Paginación de ánimes de temporada
+let paginaAnterior;
+let paginaSiguiente;
+let paginaActual = new URLSearchParams(window.location.search).get('pagina');
+let numPaginas;
+let principio;
+let final;
+
 
 function getApp() {
 
@@ -15,7 +25,7 @@ async function getAnime(anime) {
 
 }
 
-function getAnimeTemporada(numAnimes) {
+function getAnimeTemporada() {
 
     fetch(`${API_BASE}season`)
         .then (response => {
@@ -23,12 +33,30 @@ function getAnimeTemporada(numAnimes) {
         })
         .then (data => {
             let animes = [];
-            for (let index = 0; index < numAnimes; index++) {
-                const element = data.anime[index];
+
+            numPaginas = Math.ceil(data.anime.length / MAX_ANIMES);
+
+            paginaActual = new URLSearchParams(window.location.search).get('pagina');
+            paginaActual = parseInt(paginaActual);
+
+            paginaAnterior = paginaActual - 1;
+            paginaSiguiente = paginaActual + 1;
+
+            principio = (paginaActual - 1) * MAX_ANIMES;
+            final = principio + MAX_ANIMES;
+
+            if (final > data.anime.length)
+                final = principio + 1;
+
+            console.log(data.anime);
+
+            for (principio = (paginaActual - 1) * MAX_ANIMES; principio < final; principio++) {
+                let element = data.anime[principio];
+
                 animes.push(element);
             }
 
-            animesDeTemporadaControlador(animes);
+            animesDeTemporadaControlador(animes, paginaAnterior, paginaActual, paginaSiguiente, numPaginas);
 
         });
 

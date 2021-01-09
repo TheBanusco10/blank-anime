@@ -7,8 +7,17 @@ document.title = animeTexto;
             .then(data => {
                 let resultado = data.results.filter(element => element.title === animeTexto);
 
-                console.log(resultado);
-                mostrarAnimeControlador(resultado[0]);
+                // Petición a la API para conseguir la información completa del anime.
+                // Si trabajamos con resultado directamente, la información es parcial.
+                fetch(`${API_BASE}anime/${resultado[0].mal_id}`)
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data => {
+                        mostrarAnimeControlador(data, paginaSiguiente);
+                    })
+
+                
             });
 
     }else

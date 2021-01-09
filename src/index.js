@@ -1,5 +1,5 @@
 window.onload = () => {
 
-    getAnimeTemporada(6);
+    getAnimeTemporada();
     
 }

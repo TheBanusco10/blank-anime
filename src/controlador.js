@@ -1,12 +1,14 @@
-function animesDeTemporadaControlador(animes) {
+function animesDeTemporadaControlador(animes, pagAnterior, pagActual, pagSiguiente, pagFinal) {
 
-    document.getElementById('animesDeTemporada').innerHTML = animesDeTemporadaVista(animes);
-
+    document.getElementById('animesDeTemporada').innerHTML = animesDeTemporadaVista(animes, pagActual);
+    document.getElementById('paginacion').innerHTML = paginacionVista(pagAnterior, pagActual, pagSiguiente, pagFinal);
 }
 
-function mostrarAnimeControlador(anime) {
+function mostrarAnimeControlador(anime, pagActual) {
 
     document.getElementById('info').innerHTML = mostrarAnimeVista(anime);
+            
+    document.getElementById('volver').innerHTML = `<a href="index.html?pagina=${paginaActual}" class="button" target="_self">Volver</a>`;
 
 }
 
