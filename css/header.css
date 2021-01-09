@@ -1,0 +1,73 @@
+header {
+
+    height: 80px;
+    
+    background-color: rgb(31, 31, 31);
+    
+    color: white;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    align-content: center;
+
+}
+
+header h1 {
+
+    margin-top: 1rem;
+
+    font-size: 30px;
+
+}
+
+.headerContenedor {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-evenly;
+
+}
+
+#buscar {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: end;
+    align-content: center;
+
+    margin-top: 1rem;
+
+}
+
+#buscar input {
+
+    height: 30px;
+
+    color: black;
+
+}
+
+#buscar button {
+    margin-left: 5px;
+    height: 30px;
+
+    line-height: 0;
+}
+
+@media (max-width: 768px) {
+
+    #buscar input {
+
+        width: 130px;
+
+    }
+
+    .headerContenedor {
+    
+        justify-content: space-between;
+    
+    }
+
+}

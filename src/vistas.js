@@ -82,9 +82,9 @@ function mostrarAnimeVista(anime) {
                 <div class="subImagen">
                     <p>${type}</p>
                     <p>${score}</p>
-                    <p>${rating}</p> 
-                    <p>${airing}</p>
                 </div>
+                <p class="text-bold">${rating}</p> 
+                <p class="text-bold">${airing}</p>
             </div>
             <div class="eight columns">
                 <p class="titulo">${title}</p>

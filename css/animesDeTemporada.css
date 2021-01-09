@@ -9,7 +9,9 @@
 
 .card {
 
-    width: 30%;
+    width: 100%;
+
+    max-width: 200px;
 
     position: relative;
 
@@ -38,15 +40,11 @@
     height: 250px;
 
     object-fit: cover;
+
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+
     
-}
-
-@media (min-width: 480px) {
-
-    .card {
-        width: 100%;
-    }
-
 }
 
 @media (min-width: 768px) {
