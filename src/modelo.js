@@ -5,8 +5,10 @@ const MAX_ANIMES = 8;
 let paginaAnterior;
 let paginaSiguiente;
 let paginaActual = new URLSearchParams(window.location.search).get('pagina');
+let numPaginas;
 let principio;
 let final;
+
 
 /**
  * @description Función para buscar información de un anime
@@ -33,6 +35,8 @@ function getAnimeTemporada() {
         })
         .then (data => {
             let animes = [];
+
+            numPaginas = Math.ceil(data.anime.length / MAX_ANIMES);
 
             paginaActual = new URLSearchParams(window.location.search).get('pagina');
             if (!paginaActual) paginaActual = 1;
