@@ -17,7 +17,9 @@
     font-weight: bold;
 }
 
-.titulo {
+#info .titulo {
+
+    height: auto;
 
     font-size: 30px;
 

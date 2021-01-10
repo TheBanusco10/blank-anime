@@ -4,7 +4,7 @@ function animesDeTemporadaControlador(animes, pagAnterior, pagActual, pagSiguien
     document.getElementById('paginacion').innerHTML = paginacionVista(pagAnterior, pagActual, pagSiguiente, pagFinal);
 }
 
-function mostrarAnimeControlador(anime, pagActual) {
+function mostrarAnimeControlador(anime) {
 
     document.getElementById('info').innerHTML = mostrarAnimeVista(anime);
             

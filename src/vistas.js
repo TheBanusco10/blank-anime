@@ -9,6 +9,11 @@ function animesDeTemporadaVista(animes, pagActual) {
         let puntuacion = element.score ? element.score.toFixed(1) : 'N/A';
         let episodios =  element.episodes ? `${element.episodes} episodios` : 'N / A';
 
+        // Cambiamos las posibles comillas dobles en el título de un anime a unas simples para evitar
+        // errores en la etiqueta "a" de html
+        let regex = /"/g;
+        element.title = element.title.replace(regex, "'");
+
         contenido +=  `
     
             <div class="card">

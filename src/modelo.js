@@ -5,17 +5,14 @@ const MAX_ANIMES = 8;
 let paginaAnterior;
 let paginaSiguiente;
 let paginaActual = new URLSearchParams(window.location.search).get('pagina');
-let numPaginas;
 let principio;
 let final;
 
-
-function getApp() {
-
-    return document.getElementById('app');
-
-}
-
+/**
+ * @description Función para buscar información de un anime
+ * @param {String} anime Anime a buscar
+ * @return {Promise}
+ */
 async function getAnime(anime) {
 
     let response = await fetch(`${API_BASE}search/anime?q=${anime}`);
@@ -25,6 +22,9 @@ async function getAnime(anime) {
 
 }
 
+/**
+ * @description Función para mostrar los animes de temporada
+ */
 function getAnimeTemporada() {
 
     fetch(`${API_BASE}season`)
@@ -33,9 +33,6 @@ function getAnimeTemporada() {
         })
         .then (data => {
             let animes = [];
-
-            numPaginas = Math.ceil(data.anime.length / MAX_ANIMES);
-            console.log(numPaginas);
 
             paginaActual = new URLSearchParams(window.location.search).get('pagina');
             if (!paginaActual) paginaActual = 1;
@@ -50,7 +47,6 @@ function getAnimeTemporada() {
             if (final > data.anime.length)
                 final = principio + 1;
 
-            console.log(data.anime);
 
             for (principio = (paginaActual - 1) * MAX_ANIMES; principio < final; principio++) {
                 let element = data.anime[principio];
