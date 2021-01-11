@@ -18,43 +18,28 @@
 </head>
 <body>
 
-    <div id="app">
-
-        <header>
-            <div class="container">
-                <div class="row headerContenedor">
-                    <h1>Blank Anime</h1>
-                    <div id="buscar">
-                        <input type="text" placeholder="Anime" id="buscarJugadorInput">
-                        <button id="buscarBoton" class="button-primary">Buscar</button>
-                    </div>
+    <header>
+        <div class="container">
+            <div class="row headerContenedor">
+                <h1>Blank Anime</h1>
+                <div id="buscar">
+                    <input type="text" placeholder="Anime" id="buscarJugadorInput">
+                    <button id="buscarBoton" class="button-primary">Buscar</button>
                 </div>
             </div>
-        </header>
-
-        <div class="container">
-            <div class="row">
-                <section class="twelve columns">
-                    <h3 class="text-center">Anime de temporada - 2021
-                    </h3>
-                    <div id="animesDeTemporada">
-                    </div>
-                    <div id="paginacion"></div>
-                </section>
-
-                <!-- <a href="view.html?anime=\"Uchuu Senkan Yamato\" to Iu Jidai: Seireki 2202-nen no Sentaku&pagina=${pagActual}" target="_self">${element.title}</a> -->
-
-                <!-- <section id="buscarPerfil" class="six columns">
-                    <h3 class="text-center">Buscar jugador</h3>
-                    <input type="text" placeholder="Jugador" id="buscarJugadorInput">
-                    <button id="buscarPerfilJugador">Buscar jugador</button>
-                    <section id="resultadoPerfilJugador">
-                        
-                    </section>
-                </section> -->
-            </div>
         </div>
+    </header>
 
+    <div class="container">
+        <div class="row">
+            <section class="twelve columns" id="sectionAnimesDeTemporada">
+                <h3 class="text-center">Anime de temporada - 2021
+                </h3>
+                <div id="animesDeTemporada">
+                </div>
+                <div id="paginacion"></div>
+            </section>
+        </div>
     </div>
 
     

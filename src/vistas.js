@@ -1,6 +1,6 @@
 
 // TODO límite de palabras en la sinopsis de los animes. (Se desborda de normal)
-function animesDeTemporadaVista(animes, pagActual) {
+function animesDeTemporadaVista(animes, paginacion) {
     
     let contenido = '';
 
@@ -21,7 +21,7 @@ function animesDeTemporadaVista(animes, pagActual) {
                     <img src="${element.image_url}" alt="${element.title}">
                     <p class="puntuacion">${puntuacion}</p>
                 </div>
-                <p class="titulo"><a href="view.html?anime=${element.title}&pagina=${pagActual}" target="_self">${element.title}</a></p>
+                <p class="titulo"><a href="view.html?anime=${element.title}&pagina=${paginacion.paginaActual}" target="_self">${element.title}</a></p>
                 <p class="sinopsis">${element.synopsis.substring(0, 40)}</p>
                 <p class="episodios">${episodios}</p>
             </div>
@@ -35,35 +35,34 @@ function animesDeTemporadaVista(animes, pagActual) {
 
 }
 
-function paginacionVista(pagAnterior, pagActual, pagSiguiente, pagFinal) {
+function paginacionVista(paginacion) {
 
     let contenido = '';
 
-    if (pagActual == 1) {
+    if (paginacion.paginaActual == 1) {
         contenido = `
             <p>
-                <a href="index.html?pagina=${pagActual}" target="_self">${pagActual}</a> | 
-                <a href="index.html?pagina=${pagSiguiente}" target="_self">${pagSiguiente}</a> ...
-                <a href="index.html?pagina=${pagFinal}" target="_self">${pagFinal}</a>
+                <a href="index.html?pagina=${paginacion.paginaActual}" target="_self">${paginacion.paginaActual}</a> | 
+                <a href="index.html?pagina=${paginacion.paginaSiguiente}" target="_self">${paginacion.paginaSiguiente}</a> ...
+                <a href="index.html?pagina=${paginacion.paginaFinal}" target="_self">${paginacion.numPaginas}</a>
             </p>
         `;
-
-    }else if (pagActual == pagFinal) {
+    }else if (paginacion.paginaActual == paginacion.numPaginas) {
         contenido = `
             <p>
                 <a href="index.html?pagina=1" target="_self">1</a> ...
-                <a href="index.html?pagina=${pagAnterior}" target="_self">${pagAnterior}</a> | 
-                <a href="index.html?pagina=${pagActual}" target="_self">${pagActual}</a>
+                <a href="index.html?pagina=${paginacion.paginaAnterior}" target="_self">${paginacion.paginaAnterior}</a> | 
+                <a href="index.html?pagina=${paginacion.paginaActual}" target="_self">${paginacion.paginaActual}</a>
             </p>
         `;
     }else {
         contenido = `
             <p>
                 <a href="index.html?pagina=1" target="_self">1</a> ...
-                <a href="index.html?pagina=${pagAnterior}" target="_self">${pagAnterior}</a> | 
-                <a href="index.html?pagina=${pagActual}" target="_self">${pagActual}</a> | 
-                <a href="index.html?pagina=${pagSiguiente}" target="_self">${pagSiguiente}</a> ...
-                <a href="index.html?pagina=${pagFinal}" target="_self">${pagFinal}</a>
+                <a href="index.html?pagina=${paginacion.paginaAnterior}" target="_self">${paginacion.paginaAnterior}</a> | 
+                <a href="index.html?pagina=${paginacion.paginaActual}" target="_self">${paginacion.paginaActual}</a> | 
+                <a href="index.html?pagina=${paginacion.paginaSiguiente}" target="_self">${paginacion.paginaSiguiente}</a> ...
+                <a href="index.html?pagina=${paginacion.numPaginas}" target="_self">${paginacion.numPaginas}</a>
             </p>
         `;
     }
@@ -73,7 +72,7 @@ function paginacionVista(pagAnterior, pagActual, pagSiguiente, pagFinal) {
 }
 
 function mostrarAnimeVista(anime) {
-    console.log(anime);
+    
     let {image_url, title, synopsis, type, score, airing, rating} = anime;
 
     airing = airing ? 'En emisión' : 'Finalizado';

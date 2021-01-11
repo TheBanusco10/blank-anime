@@ -20,11 +20,13 @@ document.title = animeTexto;
                 // Si trabajamos con resultado directamente, la información es parcial.
                 fetch(`${API_BASE}anime/${resultado[0].mal_id}`)
                     .then(response => {
+                        mostrarCarga();
+
                         return response.json();
                     })
                     .then(data => {
-                        console.log(data);
                         
+                        ocultarCarga();
                         mostrarAnimeControlador(data);
                     })
 
