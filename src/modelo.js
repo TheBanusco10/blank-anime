@@ -89,8 +89,7 @@ async function buscar(tipo, texto) {
 
     let resultado = data.results.filter(element => element.title.toLowerCase().includes(texto.toLowerCase()));
 
-    console.log(data);
-    console.log(resultado);
+    return resultado;
 
 
 }

@@ -1,10 +1,14 @@
-#animesDeTemporada {
+#animesDeTemporada, #resultadoBusqueda {
 
     display: flex;
     flex-wrap: wrap;
 
     justify-content: center;
 
+}
+
+#sectionAnimesDeTemporada h3 {
+    margin-top: 2rem;
 }
 
 .card {

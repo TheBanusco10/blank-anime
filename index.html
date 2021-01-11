@@ -23,7 +23,11 @@
             <div class="row headerContenedor">
                 <h1>Blank Anime</h1>
                 <div id="buscar">
-                    <input type="text" placeholder="Anime" id="buscarJugadorInput">
+                    <select name="" id="">
+                        <option value="anime">Anime</option>
+                        <option value="manga">Manga</option>
+                    </select>
+                    <input type="text" placeholder="Naruto..." id="buscarJugadorInput">
                     <button id="buscarBoton" class="button-primary">Buscar</button>
                 </div>
             </div>
@@ -33,11 +37,15 @@
     <div class="container">
         <div class="row">
             <section class="twelve columns" id="sectionAnimesDeTemporada">
-                <h3 class="text-center">Anime de temporada - 2021
-                </h3>
+                <h3 class="text-center">Anime de temporada - 2021</h3>
                 <div id="animesDeTemporada">
                 </div>
                 <div id="paginacion"></div>
+            </section>
+            <section class="twuelve columns" id="sectionResultadosBusqueda">
+                <h3 class="text-center">Resultados</h3>
+                <div id="resultadoBusqueda">
+                </div>
             </section>
         </div>
     </div>

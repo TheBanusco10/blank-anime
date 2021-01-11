@@ -16,7 +16,25 @@
     width: 200px;
 }
 
+#paginacion {
+    text-align: center;
 
+    margin-top: 2rem;
+}
+
+#paginacion a {
+
+    background-color: rgb(0, 139, 219);
+
+    padding: 10px;
+
+    color: white;
+
+    border-radius: 3px;
+
+    text-decoration: none;
+
+}
 
 .puntuacion {
 

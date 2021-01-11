@@ -18,7 +18,9 @@ function animesDeTemporadaVista(animes, paginacion) {
     
             <div class="card">
                 <div class="image">
-                    <img src="${element.image_url}" alt="${element.title}">
+                    <a href="view.html?anime=${element.title}&pagina=${paginacion.paginaActual}" target="_self">
+                        <img src="${element.image_url}" alt="${element.title}">
+                    </a>
                     <p class="puntuacion">${puntuacion}</p>
                 </div>
                 <p class="titulo"><a href="view.html?anime=${element.title}&pagina=${paginacion.paginaActual}" target="_self">${element.title}</a></p>

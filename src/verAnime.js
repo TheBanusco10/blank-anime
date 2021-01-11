@@ -13,6 +13,8 @@ document.title = animeTexto;
                 let regex = /'/g;
                 animeTexto = animeTexto.replace(regex, '"');
 
+                console.log(data);
+
                 // Devolvemos el anime que coincide con el pedido por el usuario
                 let resultado = data.results.filter(element => element.title === animeTexto);
 
