@@ -44,39 +44,13 @@ function getAnimeTemporada() {
         .then (data => {
             let animes = [];
 
-            paginar(animes, data, paginacion);
-
-            // numPaginas = Math.ceil(data.anime.length / MAX_ANIMES);
-
-            // paginaActual = new URLSearchParams(window.location.search).get('pagina');
-
-            // if (!paginaActual) paginaActual = 1;
-            // paginaActual = parseInt(paginaActual);
-
-            // paginaAnterior = paginaActual - 1;
-            // paginaSiguiente = paginaActual + 1;
-
-            // principio = (paginaActual - 1) * MAX_ANIMES;
-            // final = principio + MAX_ANIMES;
-
-            // if (final > data.anime.length)
-            //     final = principio + 1;
-
-
-            // for (principio = (paginaActual - 1) * MAX_ANIMES; principio < final; principio++) {
-            //     let element = data.anime[principio];
-
-            //     animes.push(element);
-            // }
-
-            // animesDeTemporadaControlador(animes, paginaAnterior, paginaActual, paginaSiguiente, numPaginas);
+            paginar(animes, data.anime, paginacion);
             animesDeTemporadaControlador(animes, paginacion);
 
         });
 
 }
 
-// TODO Implementar paginación
 /**
  * 
  * @param {String} tipo Anime o manga
@@ -96,7 +70,7 @@ async function buscar(tipo, texto) {
 
 function paginar(animes, data, paginacion) {
 
-    paginacion.numPaginas = Math.ceil(data.anime.length / MAX_ANIMES);
+    paginacion.numPaginas = Math.ceil(data.length / MAX_ANIMES);
 
     paginacion.paginaActual = new URLSearchParams(window.location.search).get('pagina');
 
@@ -109,16 +83,27 @@ function paginar(animes, data, paginacion) {
     paginacion.principio = (paginacion.paginaActual - 1) * MAX_ANIMES;
     paginacion.final = paginacion.principio + MAX_ANIMES;
 
-    if (paginacion.final > data.anime.length)
+    if (paginacion.final > data.length)
         paginacion.final = paginacion.principio + 1;
 
 
     for (paginacion.principio = (paginacion.paginaActual - 1) * MAX_ANIMES; paginacion.principio < paginacion.final; paginacion.principio++) {
-        let element = data.anime[paginacion.principio];
+        let element = data[paginacion.principio];
 
         animes.push(element);
     }
 
+}
+
+/**
+ * 
+ * @param {String} s String a acortar
+ * @param {Integer} n Número de palabras a acortar
+ */
+function acortarString(s, n){
+    var cut= s.indexOf(' ', n);
+    if(cut== -1) return s;
+    return s.substring(0, cut) + ' ...';
 }
 
 function mostrarCarga() {

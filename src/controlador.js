@@ -12,3 +12,15 @@ function mostrarAnimeControlador(anime) {
 
 }
 
+// TODO Cambiar url de paginación y hacerlo más dinámico
+
+function mostrarResultadosBusquedaControlador(resultados) {
+
+    let animes = [];
+
+    paginar(animes, resultados, paginacion);
+    document.getElementById('resultadoBusqueda').innerHTML = animesDeTemporadaVista(animes, paginacion);
+    document.getElementById('paginacionResultados').innerHTML = paginacionVista(paginacion);
+
+}
+

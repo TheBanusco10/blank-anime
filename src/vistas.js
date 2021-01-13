@@ -1,5 +1,3 @@
-
-// TODO límite de palabras en la sinopsis de los animes. (Se desborda de normal)
 function animesDeTemporadaVista(animes, paginacion) {
     
     let contenido = '';
@@ -23,8 +21,8 @@ function animesDeTemporadaVista(animes, paginacion) {
                     </a>
                     <p class="puntuacion">${puntuacion}</p>
                 </div>
-                <p class="titulo"><a href="view.html?anime=${element.title}&pagina=${paginacion.paginaActual}" target="_self">${element.title}</a></p>
-                <p class="sinopsis">${element.synopsis.substring(0, 40)}</p>
+                <p class="titulo"><a href="view.html?anime=${element.title}&pagina=${paginacion.paginaActual}" target="_self">${acortarString(element.title, 40)}</a></p>
+                <p class="sinopsis">${acortarString(element.synopsis, 100)}</p>
                 <p class="episodios">${episodios}</p>
             </div>
 
@@ -75,12 +73,20 @@ function paginacionVista(paginacion) {
 
 function mostrarAnimeVista(anime) {
     
-    let {image_url, title, synopsis, type, score, airing, rating} = anime;
+    let {image_url, title, synopsis, type, score, airing, rating, genres} = anime;
+
+    let genresHTML = '';
+    genres.forEach(element => {
+        genresHTML += `
+        
+            <p class="four columns">${element.name}</p>
+
+        `;
+    });
 
     airing = airing ? 'En emisión' : 'Finalizado';
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
 
-    // TODO Mostrar género también
     return `
 
         <div class="four columns">
@@ -91,10 +97,19 @@ function mostrarAnimeVista(anime) {
                 </div>
                 <p class="text-bold">${rating}</p> 
                 <p class="text-bold">${airing}</p>
+        </div>
+        <div class="eight columns">
+            <p class="titulo">${title}</p>
+            <p class="sinopsis">${synopsis}</p>
+            <div class="row">
+
+                <div class="twuelve columns generos">
+
+                    ${genresHTML}
+                
+                </div>
+
             </div>
-            <div class="eight columns">
-                <p class="titulo">${title}</p>
-                <p class="sinopsis">${synopsis}</p>
         </div>
     
     

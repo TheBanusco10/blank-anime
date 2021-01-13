@@ -26,3 +26,33 @@
     border-bottom: 1px solid rgba(128, 128, 128, 0.438);
 
 }
+
+#info .sinopsis {
+
+    height: auto;
+
+    margin-bottom: 1rem;
+    
+    border-bottom: 1px solid rgba(128, 128, 128, 0.438);
+
+
+}
+
+#info .generos {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+}
+
+#info .generos p {
+
+    margin: 0;
+
+    padding: 3px;
+
+    font-weight: bold;
+
+}
