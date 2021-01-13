@@ -10,12 +10,9 @@ let paginacion = {
     principio: null,
     final: null
 }
-// let paginaAnterior;
-// let paginaSiguiente;
-// let paginaActual = new URLSearchParams(window.location.search).get('pagina');
-// let numPaginas;
-// let principio;
-// let final;
+
+// Sistema búsqueda
+let buscarMostrado = false;
 
 
 /**
@@ -104,6 +101,29 @@ function acortarString(s, n){
     var cut= s.indexOf(' ', n);
     if(cut== -1) return s;
     return s.substring(0, cut) + ' ...';
+}
+
+/**
+ * @description Muestra u oculta el menú de búsqueda
+ */
+function mostrarBuscar() {
+
+    if(!buscarMostrado) {
+
+        document.getElementById('pagTitulo').style.display = 'none';
+        document.getElementById('buscar').style.display = 'inline';
+        document.getElementsByClassName('headerContenedor')[0]
+    
+    }else {
+
+        document.getElementById('pagTitulo').style.display = '';
+        document.getElementById('buscar').style.display = 'none';
+    
+    }
+
+    buscarMostrado = !buscarMostrado;
+
+    
 }
 
 function mostrarCarga() {

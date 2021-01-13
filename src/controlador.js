@@ -14,13 +14,13 @@ function mostrarAnimeControlador(anime) {
 
 // TODO Cambiar url de paginación y hacerlo más dinámico
 
-function mostrarResultadosBusquedaControlador(resultados) {
+function mostrarResultadosBusquedaControlador(resultados, query) {
 
-    let animes = [];
+    // let animes = [];
 
-    paginar(animes, resultados, paginacion);
-    document.getElementById('resultadoBusqueda').innerHTML = animesDeTemporadaVista(animes, paginacion);
-    document.getElementById('paginacionResultados').innerHTML = paginacionVista(paginacion);
+    // paginar(animes, resultados, paginacion);
+    document.getElementById('resultadoBusqueda').innerHTML = animesDeTemporadaVista(resultados, paginacion, true, query);
+    // document.getElementById('paginacionResultados').innerHTML = paginacionVista(paginacion);
 
 }
 

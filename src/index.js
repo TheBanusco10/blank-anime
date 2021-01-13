@@ -8,6 +8,7 @@ window.onload = () => {
 
     sectionResultadoBusqueda.style.display = 'none';
 
+
     getAnimeTemporada();
  
     
@@ -23,7 +24,7 @@ window.onload = () => {
                 // TODO Crear vista para los resultados (Quitar parámetro pagina de la url y añadir la query)
                 sectionResultadoBusqueda.style.display = '';
 
-                mostrarResultadosBusquedaControlador(resultado);
+                mostrarResultadosBusquedaControlador(resultado, anime);
             });
 
         

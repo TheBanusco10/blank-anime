@@ -1,11 +1,26 @@
-function animesDeTemporadaVista(animes, paginacion) {
+/**
+ * 
+ * @param {Array} animes Animes para mostrar
+ * @param {Paginacion} paginacion 
+ * @param {Boolean} busqueda True si estamos buscando anime o manga
+ * @param {String} query Anime o manga buscado
+ */
+function animesDeTemporadaVista(animes, paginacion, busqueda, query) {
     
     let contenido = '';
+
+    let urlHaciaVista = '';
 
     animes.forEach(element => {
 
         let puntuacion = element.score ? element.score.toFixed(1) : 'N/A';
         let episodios =  element.episodes ? `${element.episodes} episodios` : 'N / A';
+
+        if (busqueda) {
+            urlHaciaVista = `view.html?anime=${element.title}&query=${query}`;
+        }else {
+            urlHaciaVista = `view.html?anime=${element.title}&pagina=${paginacion.paginaActual}`;
+        }
 
         // Cambiamos las posibles comillas dobles en el título de un anime a unas simples para evitar
         // errores en la etiqueta "a" de html
@@ -16,12 +31,12 @@ function animesDeTemporadaVista(animes, paginacion) {
     
             <div class="card">
                 <div class="image">
-                    <a href="view.html?anime=${element.title}&pagina=${paginacion.paginaActual}" target="_self">
+                    <a href="${urlHaciaVista}" target="_self">
                         <img src="${element.image_url}" alt="${element.title}">
                     </a>
                     <p class="puntuacion">${puntuacion}</p>
                 </div>
-                <p class="titulo"><a href="view.html?anime=${element.title}&pagina=${paginacion.paginaActual}" target="_self">${acortarString(element.title, 40)}</a></p>
+                <p class="titulo"><a href="${urlHaciaVista}" target="_self">${acortarString(element.title, 40)}</a></p>
                 <p class="sinopsis">${acortarString(element.synopsis, 100)}</p>
                 <p class="episodios">${episodios}</p>
             </div>

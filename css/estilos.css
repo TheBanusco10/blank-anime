@@ -2,6 +2,12 @@
     text-align: center;
 }
 
+h3 {
+
+    margin-top: 2rem;
+
+}
+
 #imagenCargar {
 
     display: flex;

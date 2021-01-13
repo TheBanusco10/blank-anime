@@ -11,19 +11,39 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/animesDeTemporada.css">
 
+    <script src="https://kit.fontawesome.com/04702df722.js" crossorigin="anonymous"></script>
+    <script src="src/index.js"></script>
     <script src="src/modelo.js"></script>
     <script src="src/vistas.js"></script>
     <script src="src/controlador.js"></script>
-    <script src="src/index.js"></script>
 </head>
 <body>
 
     <header>
         <div class="container">
             <div class="row headerContenedor">
-                <h1><a href="index.html">Blank Anime</a></h1>
+                <div class="twuelve columns">
+                    <h1 id="pagTitulo"><a href="index.html">Blank Anime</a></h1>
+                </div>
+                <!-- <input type="checkbox" id="search">
+                <label class="fas fa-search" for="search" onclick="mostrarBuscar()"></label>
                 <div id="buscar">
-                    <select name="" id="">
+                    <select id="busquedaOpcion">
+                        <option value="anime">Anime</option>
+                        <option value="manga">Manga</option>
+                    </select>
+                    <input type="text" placeholder="Naruto..." id="buscarJugadorInput">
+                    <button id="buscarBoton" class="button-primary">Buscar</button>
+                </div> -->
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="twuelve columns">
+                <div id="buscar">
+                    <select id="busquedaOpcion">
                         <option value="anime">Anime</option>
                         <option value="manga">Manga</option>
                     </select>
@@ -31,11 +51,6 @@
                     <button id="buscarBoton" class="button-primary">Buscar</button>
                 </div>
             </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="row">
             <section class="twelve columns" id="sectionAnimesDeTemporada">
                 <h3 class="text-center">Anime de temporada - 2021</h3>
                 <div id="animesDeTemporada">
