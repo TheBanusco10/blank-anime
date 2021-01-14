@@ -1,35 +1,58 @@
 window.onload = () => {
 
     let botonBuscar = document.getElementById('buscarBoton');
-    let inputBuscar = document.getElementById('buscarJugadorInput');
+    let inputBuscar = document.getElementById('buscarAnimaMangaInput');
+    let opcionBusqueda = document.getElementById('busquedaOpcion');
 
     const sectionAnimesDetemporada = document.getElementById('sectionAnimesDeTemporada');
     const sectionResultadoBusqueda = document.getElementById('sectionResultadosBusqueda');
 
     sectionResultadoBusqueda.style.display = 'none';
 
+    if (new URLSearchParams(window.location.search).has('query') && new URLSearchParams(window.location.search).has('type')) {
+        
+        let query = new URLSearchParams(window.location.search).get('query');
+        let type = new URLSearchParams(window.location.search).get('type');
 
-    getAnimeTemporada();
- 
-    
-    botonBuscar.addEventListener('click', () => {
-
-        let anime = inputBuscar.value;
-
-        // TODO buscar anime o manga
-        buscar('anime', anime)
+        inputBuscar.value = query;
+        
+        buscar(type, query)
             .then(resultado => {
                 sectionAnimesDetemporada.style.display = 'none';
 
                 // TODO Crear vista para los resultados (Quitar parámetro pagina de la url y añadir la query)
                 sectionResultadoBusqueda.style.display = '';
 
-                mostrarResultadosBusquedaControlador(resultado, anime);
+                mostrarResultadosBusquedaControlador(resultado, query, type);
             });
+    }else {
 
-        
-
-
-    });
+        getAnimeTemporada();
+ 
+    
+        botonBuscar.addEventListener('click', () => {
+    
+            let anime = inputBuscar.value;
+    
+            let opcionSeleccionada = opcionBusqueda.value;
+    
+            buscar(opcionSeleccionada, anime)
+                .then(resultado => {
+                    sectionAnimesDetemporada.style.display = 'none';
+    
+                    // TODO Crear vista para los resultados (Quitar parámetro pagina de la url y añadir la query)
+                    sectionResultadoBusqueda.style.display = '';
+    
+                    let query = anime;
+    
+                    mostrarResultadosBusquedaControlador(resultado, query, opcionSeleccionada);
+                });
+    
+            
+    
+    
+        });
+    }
+    
 
 }

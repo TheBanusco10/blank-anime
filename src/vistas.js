@@ -59,7 +59,7 @@ function paginacionVista(paginacion) {
             <p>
                 <a href="index.html?pagina=${paginacion.paginaActual}" target="_self">${paginacion.paginaActual}</a> | 
                 <a href="index.html?pagina=${paginacion.paginaSiguiente}" target="_self">${paginacion.paginaSiguiente}</a> ...
-                <a href="index.html?pagina=${paginacion.paginaFinal}" target="_self">${paginacion.numPaginas}</a>
+                <a href="index.html?pagina=${paginacion.numPaginas}" target="_self">${paginacion.numPaginas}</a>
             </p>
         `;
     }else if (paginacion.paginaActual == paginacion.numPaginas) {
@@ -131,5 +131,97 @@ function mostrarAnimeVista(anime) {
     `; 
 
 
+
+}
+
+function mangasResultadosVista(mangas, query) {
+
+    let contenido = '';
+
+    let urlHaciaVista = '';
+
+    mangas.forEach(element => {
+
+        let {score, chapters, title, image_url, synopsis} = element;
+
+        let puntuacion = score ? score.toFixed(1) : 'N/A';
+        let episodios =  chapters ? `${chapters} episodios` : 'N / A';
+
+        
+        urlHaciaVista = `view.html?manga=${title}`;
+
+        // Cambiamos las posibles comillas dobles en el título de un anime a unas simples para evitar
+        // errores en la etiqueta "a" de html
+        let regex = /"/g;
+        title = title.replace(regex, "'");
+
+        contenido +=  `
+    
+            <div class="card">
+                <div class="image">
+                    <a href="${urlHaciaVista}" target="_blank">
+                        <img src="${image_url}" alt="${title}">
+                    </a>
+                    <p class="puntuacion">${puntuacion}</p>
+                </div>
+                <p class="titulo"><a href="${urlHaciaVista}" target="_self">${acortarString(title, 40)}</a></p>
+                <p class="sinopsis">${acortarString(synopsis, 100)}</p>
+                <p class="episodios">${episodios}</p>
+            </div>
+
+            `;
+    
+    
+    });
+
+    return contenido;
+
+
+
+}
+
+// TODO Añadir más contenido como el autor, fecha de publicación, volúmenes...
+function mostrarMangaVista(manga) {
+
+    let {image_url, title, synopsis, type, score, publishing, genres} = manga;
+
+    let genresHTML = '';
+    genres.forEach(element => {
+        genresHTML += `
+        
+            <p class="four columns">${element.name}</p>
+
+        `;
+    });
+
+    publishing = publishing ? 'En emisión' : 'Finalizado';
+    synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
+
+    return `
+
+        <div class="four columns">
+            <img src="${image_url}" alt="${title}">
+                <div class="subImagen">
+                    <p>${type}</p>
+                    <p>${score}</p>
+                </div>
+                <p class="text-bold">${publishing}</p>
+        </div>
+        <div class="eight columns">
+            <p class="titulo">${title}</p>
+            <p class="sinopsis">${synopsis}</p>
+            <div class="row">
+
+                <div class="twuelve columns generos">
+
+                    ${genresHTML}
+                
+                </div>
+
+            </div>
+        </div>
+    
+    
+    `; 
 
 }

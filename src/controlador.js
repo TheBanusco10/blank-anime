@@ -4,23 +4,37 @@ function animesDeTemporadaControlador(animes, paginacion) {
     document.getElementById('paginacion').innerHTML = paginacionVista(paginacion);
 }
 
-function mostrarAnimeControlador(anime) {
+function mostrarAnimeOMangaControlador(informacion, tipo) {
 
-    document.getElementById('info').innerHTML = mostrarAnimeVista(anime);
+    if (tipo === 'anime') {
+        document.getElementById('info').innerHTML = mostrarAnimeVista(informacion);
             
-    document.getElementById('volver').innerHTML = `<a href="index.html?pagina=${paginacion.paginaActual}" class="button" target="_self">Volver</a>`;
+        // TODO Si es una búsqueda, cambiar el parámetro por la query
+        document.getElementById('volver').innerHTML = `<a href="index.html?pagina=${paginacion.paginaActual}" class="button" target="_self">Volver</a>`;
+    
+    }else {
 
+        document.getElementById('info').innerHTML = mostrarMangaVista(informacion);
+
+    }
+
+    
 }
 
 // TODO Cambiar url de paginación y hacerlo más dinámico
 
-function mostrarResultadosBusquedaControlador(resultados, query) {
+function mostrarResultadosBusquedaControlador(resultados, query, opcionSeleccionada) {
 
-    // let animes = [];
+    switch (opcionSeleccionada) {
+        case 'anime':
+            document.getElementById('resultadoBusqueda').innerHTML = animesDeTemporadaVista(resultados, paginacion, true, query);
+            break;
 
-    // paginar(animes, resultados, paginacion);
-    document.getElementById('resultadoBusqueda').innerHTML = animesDeTemporadaVista(resultados, paginacion, true, query);
-    // document.getElementById('paginacionResultados').innerHTML = paginacionVista(paginacion);
+        case 'manga':
+            document.getElementById('resultadoBusqueda').innerHTML = mangasResultadosVista(resultados, query);
+            break;
+
+    }
 
 }
 

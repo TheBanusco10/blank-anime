@@ -1,0 +1,27 @@
+footer {
+    height: 100px;
+    
+    background-color: rgb(31, 31, 31);
+    
+    color: white;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+.footerContenedor {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+
+    height: 100px;
+}
+
+#sobre, #documentacion {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+}

@@ -17,12 +17,13 @@ let buscarMostrado = false;
 
 /**
  * @description Función para buscar información de un anime
- * @param {String} anime Anime a buscar
+ * @param {String} busqueda Anime o manga a buscar
+ * @param {String} tipo anime o manga
  * @return {Promise}
  */
-async function getAnime(anime) {
+async function getInformacion(busqueda, tipo) {
 
-    let response = await fetch(`${API_BASE}search/anime?q=${anime}`);
+    let response = await fetch(`${API_BASE}search/${tipo}?q=${busqueda}`);
     let data = await response.json();
 
     return data;
