@@ -13,6 +13,14 @@
     font-weight: bold;
 }
 
+#autores {
+    width: 100%;
+}
+
+#autores p {
+    width: 100%;
+}
+
 .text-bold {
     font-weight: bold;
 }
@@ -55,4 +63,8 @@
 
     font-weight: bold;
 
+}
+
+.icono {
+    margin-right: 1rem;
 }

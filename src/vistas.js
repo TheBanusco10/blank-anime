@@ -109,8 +109,8 @@ function mostrarAnimeVista(anime) {
         <div class="four columns">
             <img src="${image_url}" alt="${title}">
                 <div class="subImagen">
-                    <p>${type}</p>
-                    <p>${score}</p>
+                    <p><i class="fas fa-tv icono"></i>${type}</p>
+                    <p><i class="fas fa-star icono"></i>${score}</p>
                 </div>
                 <p class="text-bold">${rating}</p> 
                 <p class="text-bold">${airing}</p>
@@ -185,7 +185,7 @@ function mangasResultadosVista(mangas, query) {
 // TODO Añadir más contenido como el autor, fecha de publicación, volúmenes...
 function mostrarMangaVista(manga) {
 
-    let {image_url, title, synopsis, type, score, publishing, genres} = manga;
+    let {image_url, title, synopsis, type, score, publishing, genres, authors} = manga;
 
     let genresHTML = '';
     genres.forEach(element => {
@@ -196,6 +196,11 @@ function mostrarMangaVista(manga) {
         `;
     });
 
+    let authorsHTML = '';
+    authors.forEach(element => {
+        authorsHTML += `<p><i class="fas fa-user icono"></i><a href="${element.url} target="_blank">${element.name}</a></p>`
+    });
+
     publishing = publishing ? 'En emisión' : 'Finalizado';
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
 
@@ -204,8 +209,11 @@ function mostrarMangaVista(manga) {
         <div class="four columns">
             <img src="${image_url}" alt="${title}">
                 <div class="subImagen">
-                    <p>${type}</p>
-                    <p>${score}</p>
+                    <div id="autores">
+                        ${authorsHTML}
+                    </div>
+                    <p><i class="fas fa-book-open icono"></i>${type}</p>
+                    <p><i class="fas fa-star icono"></i>${score}</p>
                 </div>
                 <p class="text-bold">${publishing}</p>
         </div>
