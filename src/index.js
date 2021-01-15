@@ -20,7 +20,6 @@ window.onload = () => {
             .then(resultado => {
                 sectionAnimesDetemporada.style.display = 'none';
 
-                // TODO Crear vista para los resultados (Quitar parámetro pagina de la url y añadir la query)
                 sectionResultadoBusqueda.style.display = '';
 
                 mostrarResultadosBusquedaControlador(resultado, query, type);
@@ -40,7 +39,6 @@ window.onload = () => {
                 .then(resultado => {
                     sectionAnimesDetemporada.style.display = 'none';
     
-                    // TODO Crear vista para los resultados (Quitar parámetro pagina de la url y añadir la query)
                     sectionResultadoBusqueda.style.display = '';
     
                     let query = anime;

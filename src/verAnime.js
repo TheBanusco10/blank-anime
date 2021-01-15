@@ -1,6 +1,5 @@
 
 // Tomamos el nombre del anime de la url y cambiamos el título de la página
-// TODO Si hay manga y anime en la URL mostrar error
 let urlParams = new URLSearchParams(window.location.search);
 let animeTexto = urlParams.get('anime') || urlParams.get('manga');
 document.title = animeTexto;

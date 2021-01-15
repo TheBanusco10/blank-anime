@@ -10,6 +10,7 @@ function animesDeTemporadaVista(animes, paginacion, busqueda, query) {
     let contenido = '';
 
     let urlHaciaVista = '';
+    let target = '_self';
 
     animes.forEach(element => {
 
@@ -18,6 +19,7 @@ function animesDeTemporadaVista(animes, paginacion, busqueda, query) {
 
         if (busqueda) {
             urlHaciaVista = `view.html?anime=${element.title}&query=${query}`;
+            target = '_blank';
         }else {
             urlHaciaVista = `view.html?anime=${element.title}&pagina=${paginacion.paginaActual}`;
         }
@@ -31,12 +33,12 @@ function animesDeTemporadaVista(animes, paginacion, busqueda, query) {
     
             <div class="card">
                 <div class="image">
-                    <a href="${urlHaciaVista}" target="_self">
+                    <a href="${urlHaciaVista}" target="${target}">
                         <img src="${element.image_url}" alt="${element.title}">
                     </a>
                     <p class="puntuacion">${puntuacion}</p>
                 </div>
-                <p class="titulo"><a href="${urlHaciaVista}" target="_self">${acortarString(element.title, 40)}</a></p>
+                <p class="titulo"><a href="${urlHaciaVista}" target="${target}">${acortarString(element.title, 40)}</a></p>
                 <p class="sinopsis">${acortarString(element.synopsis, 100)}</p>
                 <p class="episodios">${episodios}</p>
             </div>

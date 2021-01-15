@@ -6,22 +6,25 @@ function animesDeTemporadaControlador(animes, paginacion) {
 
 function mostrarAnimeOMangaControlador(informacion, tipo) {
 
+    let info = document.getElementById('info');
+    
     if (tipo === 'anime') {
-        document.getElementById('info').innerHTML = mostrarAnimeVista(informacion);
+        info.innerHTML = mostrarAnimeVista(informacion);
             
-        // TODO Si es una búsqueda, cambiar el parámetro por la query
+        // TODO Si es una búsqueda, quitar el botón de volver
+
+        paginacion.paginaActual = paginacion.paginaActual ? paginacion.paginaActual : 1;
+
         document.getElementById('volver').innerHTML = `<a href="index.html?pagina=${paginacion.paginaActual}" class="button" target="_self">Volver</a>`;
     
     }else {
 
-        document.getElementById('info').innerHTML = mostrarMangaVista(informacion);
+        info.innerHTML = mostrarMangaVista(informacion);
 
     }
 
     
 }
-
-// TODO Cambiar url de paginación y hacerlo más dinámico
 
 function mostrarResultadosBusquedaControlador(resultados, query, opcionSeleccionada) {
 
