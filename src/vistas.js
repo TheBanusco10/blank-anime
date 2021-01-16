@@ -204,6 +204,8 @@ function mostrarMangaVista(manga) {
     publishing = publishing ? 'En emisión' : 'Finalizado';
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
 
+    // TODO comprobar si no hay fecha de finalización
+
     return `
 
         <div class="four columns">
