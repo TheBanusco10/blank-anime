@@ -139,3 +139,20 @@ function ocultarCarga() {
     document.getElementById('imagenCargar').style.display = 'none';
 
 }
+
+/**
+ * @description Formatea la fecha en formato 'es'
+ * @param {String} fecha Fecha a formatear
+ * @return {String} string de fecha con formato 'es'
+ */
+function formatearFecha(fecha) {
+
+    let fechaObjeto = new Date(fecha);
+
+    // Añadimos 0 a la izquierda si es necesario en el día y mes
+    let dia = fechaObjeto.getDate() < 10 ? `0${fechaObjeto.getDate()}` : fechaObjeto.getDate();
+    let mes = fechaObjeto.getMonth() < 10 ? `0${fechaObjeto.getMonth()}` : fechaObjeto.getMonth();
+
+    return `${dia}-${mes}-${fechaObjeto.getFullYear()}`;
+
+}

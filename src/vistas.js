@@ -185,7 +185,7 @@ function mangasResultadosVista(mangas, query) {
 // TODO Añadir más contenido como el autor, fecha de publicación, volúmenes...
 function mostrarMangaVista(manga) {
 
-    let {image_url, title, synopsis, type, score, publishing, genres, authors} = manga;
+    let {image_url, title, synopsis, type, score, publishing, genres, authors, published} = manga;
 
     let genresHTML = '';
     genres.forEach(element => {
@@ -215,6 +215,7 @@ function mostrarMangaVista(manga) {
                     <p><i class="fas fa-book-open icono"></i>${type}</p>
                     <p><i class="fas fa-star icono"></i>${score}</p>
                 </div>
+                <p class="text-bold">${formatearFecha(published.from)} / ${formatearFecha(published.to)}</p>
                 <p class="text-bold">${publishing}</p>
         </div>
         <div class="eight columns">
