@@ -1,5 +1,6 @@
 const API_BASE = 'https://api.jikan.moe/v3/';
 const MAX_ANIMES = 8;
+const APP_VERSION = 'Beta 0.20v';
 
 // Paginación de ánimes de temporada
 let paginacion = {
@@ -13,6 +14,21 @@ let paginacion = {
 
 // Sistema búsqueda
 let buscarMostrado = false;
+
+
+// Scripts en común
+
+function cargarEstructuraGeneralHTML() {
+    versionApp();
+}
+
+function versionApp() {
+
+    console.log('Dentro version');
+
+    document.getElementById('versionApp').innerHTML = APP_VERSION;
+
+}
 
 
 /**
@@ -143,16 +159,24 @@ function ocultarCarga() {
 /**
  * @description Formatea la fecha en formato 'es'
  * @param {String} fecha Fecha a formatear
- * @return {String} string de fecha con formato 'es'
+ * @return {String} string de fecha con formato 'es'. Si la fecha es inválida, devuelve el parámetro pasado a la función
  */
 function formatearFecha(fecha) {
+
+    let fechaFormateada = '';
+
+    if (isNaN(Date.parse(fecha)))
+        return fecha;
 
     let fechaObjeto = new Date(fecha);
 
     // Añadimos 0 a la izquierda si es necesario en el día y mes
     let dia = fechaObjeto.getDate() < 10 ? `0${fechaObjeto.getDate()}` : fechaObjeto.getDate();
-    let mes = fechaObjeto.getMonth() < 10 ? `0${fechaObjeto.getMonth()}` : fechaObjeto.getMonth();
+    let mes = fechaObjeto.getMonth() < 10 ? `0${fechaObjeto.getMonth() + 1}` : fechaObjeto.getMonth() + 1;
 
-    return `${dia}-${mes}-${fechaObjeto.getFullYear()}`;
+    fechaFormateada = `${dia}-${mes}-${fechaObjeto.getFullYear()}`;
+    
+
+    return fechaFormateada;
 
 }

@@ -1,8 +1,9 @@
+cargarEstructuraGeneralHTML();
 
 // Tomamos el nombre del anime de la url y cambiamos el título de la página
 let urlParams = new URLSearchParams(window.location.search);
 let animeTexto = urlParams.get('anime') || urlParams.get('manga');
-document.title = animeTexto;
+document.title = `Blank Anime - ${animeTexto}`;
 
     // Si se encuentran los dos parámetros hay error.
     if (urlParams.has('anime') && urlParams.has('manga')){

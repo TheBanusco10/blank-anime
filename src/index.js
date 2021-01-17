@@ -1,5 +1,7 @@
 window.onload = () => {
 
+    cargarEstructuraGeneralHTML();
+
     let botonBuscar = document.getElementById('buscarBoton');
     let inputBuscar = document.getElementById('buscarAnimaMangaInput');
     let opcionBusqueda = document.getElementById('busquedaOpcion');

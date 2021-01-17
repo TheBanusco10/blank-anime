@@ -31,7 +31,11 @@
 
     font-size: 30px;
 
-    border-bottom: 1px solid rgba(128, 128, 128, 0.438);
+}
+
+#info .subtitulo {
+
+    font-size: 15px;
 
 }
 
@@ -41,6 +45,7 @@
 
     margin-bottom: 1rem;
     
+    border-top: 1px solid rgba(128, 128, 128, 0.438);
     border-bottom: 1px solid rgba(128, 128, 128, 0.438);
 
 
@@ -67,4 +72,58 @@
 
 .icono {
     margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+
+    #caracteristicasContenedor {
+        text-align: center;
+        width: 100%;
+    }
+
+    #textoContenedor {
+        width: 100%;
+    }
+
+    .subImagen p {
+
+        text-align: center;
+        width: 50%;
+
+    }
+
+    #info img {
+
+        width: 300px;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    #caracteristicasContenedor {
+        text-align: center;
+        width: 100%;
+    }
+
+    #textoContenedor {
+        width: 100%;
+    }
+
+    #caracteristicasContenedor p {
+
+        text-align: left;
+        width: 100%;
+
+    }
+
+    #info img {
+
+        /* max-width: 200px; */
+
+        width: 300px;
+
+    }
+
 }

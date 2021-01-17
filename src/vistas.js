@@ -88,9 +88,10 @@ function paginacionVista(paginacion) {
 
 }
 
+// TODO mostrar horario de emisión, trailers, openings...
 function mostrarAnimeVista(anime) {
     
-    let {image_url, title, synopsis, type, score, airing, rating, genres} = anime;
+    let {image_url, title, synopsis, type, score, airing, rating, genres, aired, title_japanese} = anime;
 
     let genresHTML = '';
     genres.forEach(element => {
@@ -103,20 +104,23 @@ function mostrarAnimeVista(anime) {
 
     airing = airing ? 'En emisión' : 'Finalizado';
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
+    aired.to = aired.to ? aired.to : 'Desconocido';
 
     return `
 
-        <div class="four columns">
+        <div class="four columns" id="caracteristicasContenedor">
             <img src="${image_url}" alt="${title}">
                 <div class="subImagen">
                     <p><i class="fas fa-tv icono"></i>${type}</p>
                     <p><i class="fas fa-star icono"></i>${score}</p>
                 </div>
-                <p class="text-bold">${rating}</p> 
+                <p class="text-bold">${rating}</p>
+                <p class="text-bold"><i class="fas fa-calendar-week icono"></i>${formatearFecha(aired.from)} / ${formatearFecha(aired.to)}</p>
                 <p class="text-bold">${airing}</p>
         </div>
-        <div class="eight columns">
+        <div class="eight columns" id="textoContenedor">
             <p class="titulo">${title}</p>
+            <p class="subtitulo">${title_japanese}</p>
             <p class="sinopsis">${synopsis}</p>
             <div class="row">
 
@@ -185,7 +189,7 @@ function mangasResultadosVista(mangas, query) {
 // TODO Añadir más contenido como el autor, fecha de publicación, volúmenes...
 function mostrarMangaVista(manga) {
 
-    let {image_url, title, synopsis, type, score, publishing, genres, authors, published} = manga;
+    let {image_url, title, synopsis, type, score, publishing, genres, authors, published, volumes, title_japanese} = manga;
 
     let genresHTML = '';
     genres.forEach(element => {
@@ -203,12 +207,12 @@ function mostrarMangaVista(manga) {
 
     publishing = publishing ? 'En emisión' : 'Finalizado';
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
-
-    // TODO comprobar si no hay fecha de finalización
+    published.to = published.to ? published.to : 'Desconocido';
+    volumes = volumes ? volumes : 'Desconocidos';
 
     return `
 
-        <div class="four columns">
+        <div class="four columns" id="caracteristicasContenedor">
             <img src="${image_url}" alt="${title}">
                 <div class="subImagen">
                     <div id="autores">
@@ -217,11 +221,13 @@ function mostrarMangaVista(manga) {
                     <p><i class="fas fa-book-open icono"></i>${type}</p>
                     <p><i class="fas fa-star icono"></i>${score}</p>
                 </div>
-                <p class="text-bold">${formatearFecha(published.from)} / ${formatearFecha(published.to)}</p>
+                <p class="text-bold"><i class="fas fa-calendar-week icono"></i>${formatearFecha(published.from)} / ${formatearFecha(published.to)}</p>
+                <p class="text-bold"><i class="fas fa-book icono"></i>${volumes} volúmenes</p>
                 <p class="text-bold">${publishing}</p>
         </div>
-        <div class="eight columns">
+        <div class="eight columns" id="textoContenedor">
             <p class="titulo">${title}</p>
+            <p class="subtitulo">${title_japanese}</p>
             <p class="sinopsis">${synopsis}</p>
             <div class="row">
 
