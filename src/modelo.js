@@ -24,8 +24,6 @@ function cargarEstructuraGeneralHTML() {
 
 function versionApp() {
 
-    console.log('Dentro version');
-
     document.getElementById('versionApp').innerHTML = APP_VERSION;
 
 }

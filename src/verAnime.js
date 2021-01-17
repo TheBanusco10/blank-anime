@@ -1,4 +1,8 @@
-cargarEstructuraGeneralHTML();
+window.onload = () => {
+    cargarEstructuraGeneralHTML();
+
+}
+
 
 // Tomamos el nombre del anime de la url y cambiamos el título de la página
 let urlParams = new URLSearchParams(window.location.search);
