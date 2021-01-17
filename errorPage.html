@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Anime ¡Información sobre anime y manga!</title>
+
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/errorPage.css">
+
+    <script src="https://kit.fontawesome.com/04702df722.js" crossorigin="anonymous"></script>
+    <script src="src/errorPage.js"></script>
+    <script src="src/modelo.js"></script>
+    <script src="src/vistas.js"></script>
+    <script src="src/controlador.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row headerContenedor">
+                <div class="twuelve columns">
+                    <h1 id="pagTitulo">
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="logo">
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" id="errorContenedor">
+        <div class="row">
+            <div class="twuelve columns text-center">
+                <img class="errorImage" src="images/error.svg" alt="error">
+            </div>
+        </div>
+        <div class="row">
+            <div class="twuelve columns text-center">
+                <h3>¡Ha ocurrido un error!</h3>
+                <h5 id="error"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twuelve columns text-center">
+                <a class="button" href="index.html">Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="twuelve columns footerContenedor">
+                    <section id="sobre">
+                        <p>Busca información sobre Anime o Manga
+                            <br>
+                            Desarrollado por David Jiménez &copy; 2021
+                        </p>
+                    </section>
+                    <section id="documentacion">
+                        <p>Código abierto <a href="https://github.com/TheBanusco10/blank-anime" target="_blank">GitHub</a>
+                            <br>
+                            Uso de la <a href="https://jikan.moe/" target="_blank">API de Jikan</a>
+                        </p>
+                    </section>
+                    <div class="twuelve columns">
+                        <section id="versionAppSection">
+                            <p class="text-center" id="versionApp"></p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

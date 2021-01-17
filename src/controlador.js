@@ -14,7 +14,6 @@ function mostrarAnimeOMangaControlador(informacion, tipo) {
         // TODO Si es una búsqueda, quitar el botón de volver
 
         paginacion.paginaActual = paginacion.paginaActual ? paginacion.paginaActual : 1;
-
         document.getElementById('volver').innerHTML = `<a href="index.html?pagina=${paginacion.paginaActual}" class="button" target="_self">Volver</a>`;
     
     }else {

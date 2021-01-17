@@ -1,8 +1,6 @@
 window.onload = () => {
-    cargarEstructuraGeneralHTML();
-
+    cargarVersionApp();
 }
-
 
 // Tomamos el nombre del anime de la url y cambiamos el título de la página
 let urlParams = new URLSearchParams(window.location.search);
@@ -12,8 +10,8 @@ document.title = `Blank Anime - ${animeTexto}`;
     // Si se encuentran los dos parámetros hay error.
     if (urlParams.has('anime') && urlParams.has('manga')){
 
-        document.write('Error');
-
+        let error = 'Solo puedes buscar un tipo a la vez';
+        window.location = `errorPage.html?error=${error}`;
         
         
     }else {

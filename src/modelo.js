@@ -12,22 +12,16 @@ let paginacion = {
     final: null
 }
 
-// Sistema búsqueda
-let buscarMostrado = false;
 
+// Funciones estructura general HTML
 
-// Scripts en común
-
-function cargarEstructuraGeneralHTML() {
-    versionApp();
-}
-
-function versionApp() {
+function cargarVersionApp() {
 
     document.getElementById('versionApp').innerHTML = APP_VERSION;
 
 }
 
+// Funciones generales
 
 /**
  * @description Función para buscar información de un anime
@@ -116,29 +110,6 @@ function acortarString(s, n){
     var cut= s.indexOf(' ', n);
     if(cut== -1) return s;
     return s.substring(0, cut) + ' ...';
-}
-
-/**
- * @description Muestra u oculta el menú de búsqueda
- */
-function mostrarBuscar() {
-
-    if(!buscarMostrado) {
-
-        document.getElementById('pagTitulo').style.display = 'none';
-        document.getElementById('buscar').style.display = 'inline';
-        document.getElementsByClassName('headerContenedor')[0]
-    
-    }else {
-
-        document.getElementById('pagTitulo').style.display = '';
-        document.getElementById('buscar').style.display = 'none';
-    
-    }
-
-    buscarMostrado = !buscarMostrado;
-
-    
 }
 
 function mostrarCarga() {
