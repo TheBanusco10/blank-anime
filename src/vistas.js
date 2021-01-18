@@ -189,7 +189,7 @@ function mangasResultadosVista(mangas, query) {
 // TODO Añadir más contenido como el autor, fecha de publicación, volúmenes...
 function mostrarMangaVista(manga) {
 
-    let {image_url, title, synopsis, type, score, publishing, genres, authors, published, volumes, title_japanese} = manga;
+    let {image_url, title, synopsis, type, score, publishing, genres, authors, published, volumes, chapters, title_japanese} = manga;
 
     let genresHTML = '';
     genres.forEach(element => {
@@ -209,6 +209,7 @@ function mostrarMangaVista(manga) {
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
     published.to = published.to ? published.to : 'Desconocido';
     volumes = volumes ? volumes : 'Desconocidos';
+    chapters = chapters ? chapters : 'Desconocidos';
 
     return `
 
@@ -220,9 +221,10 @@ function mostrarMangaVista(manga) {
                     </div>
                     <p><i class="fas fa-book-open icono"></i>${type}</p>
                     <p><i class="fas fa-star icono"></i>${score}</p>
+                    <p class="text-bold"><i class="fas fa-book icono"></i>${volumes} volúmenes</p>
+                    <p class="text-bold"><i class="fas fa-book icono"></i>${chapters} capítulos</p>
                 </div>
                 <p class="text-bold"><i class="fas fa-calendar-week icono"></i>${formatearFecha(published.from)} / ${formatearFecha(published.to)}</p>
-                <p class="text-bold"><i class="fas fa-book icono"></i>${volumes} volúmenes</p>
                 <p class="text-bold">${publishing}</p>
         </div>
         <div class="eight columns" id="textoContenedor">

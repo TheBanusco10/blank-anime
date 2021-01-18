@@ -45,11 +45,13 @@ function getAnimeTemporada() {
 
     fetch(`${API_BASE}season`)
         .then (response => {
+            mostrarCarga();
             return response.json();
         })
         .then (data => {
             let animes = [];
 
+            ocultarCarga();
             paginar(animes, data.anime, paginacion);
             animesDeTemporadaControlador(animes, paginacion);
 

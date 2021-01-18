@@ -1,5 +1,6 @@
 footer {
-    height: 100px;
+
+    height: 200px;
     
     background-color: rgb(31, 31, 31);
     
@@ -26,4 +27,17 @@ footer p {
     flex-wrap: wrap;
 
     align-items: center;
+
+    margin: 2rem;
+
+}
+
+
+
+@media (min-width: 768px) {
+
+    footer {
+        height: 130px;
+    }
+
 }
