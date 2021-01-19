@@ -10,9 +10,7 @@ document.title = `Blank Anime - ${animeTexto}`;
     // Si se encuentran los dos parámetros hay error.
     if (urlParams.has('anime') && urlParams.has('manga')){
 
-        let error = 'Solo puedes buscar un tipo a la vez';
-        window.location = `errorPage.html?error=${error}`;
-        
+        mostrarPagError('Solo puedes buscar un tipo a la vez');        
         
     }else {
 
@@ -22,8 +20,9 @@ document.title = `Blank Anime - ${animeTexto}`;
             .then(data => {
 
                 // Si hay comillas simples en el nombre las cambiamos por comillas dobles para comparar con los demás animes
-                let regex = /'/g;
-                animeTexto = animeTexto.replace(regex, '"');
+                // let regex = /'/g;
+                // animeTexto = animeTexto.replace(regex, '"');
+                animeTexto = formatearTitulo(animeTexto, "'", '"');
 
                 // Devolvemos el anime que coincide con el pedido por el usuario
                 let resultado = data.results.find(element => element.title === animeTexto);

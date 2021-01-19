@@ -58,6 +58,9 @@
 
     justify-content: center;
 
+    border-bottom: 1px solid rgba(128, 128, 128, 0.438);
+
+
 }
 
 #info .generos p {
@@ -67,6 +70,21 @@
     padding: 3px;
 
     font-weight: bold;
+
+}
+
+.canciones {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.canciones h5 {
+    width: 100%;
+}
+
+.canciones p {
+
+    width: 50%;
 
 }
 
@@ -118,9 +136,13 @@
 
     }
 
-    #info img {
+    .canciones p {
 
-        /* max-width: 200px; */
+        width: 100%;
+
+    }
+
+    #info img {
 
         width: 300px;
 

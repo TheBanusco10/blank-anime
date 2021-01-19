@@ -1,6 +1,6 @@
 const API_BASE = 'https://api.jikan.moe/v3/';
 const MAX_ANIMES = 8;
-const APP_VERSION = 'Beta 0.20v';
+const APP_VERSION = 'Beta 0.21v';
 
 // Paginación de ánimes de temporada
 let paginacion = {
@@ -50,6 +50,8 @@ function getAnimeTemporada() {
         })
         .then (data => {
             let animes = [];
+
+            console.log(data);
 
             ocultarCarga();
             paginar(animes, data.anime, paginacion);
@@ -149,5 +151,42 @@ function formatearFecha(fecha) {
     
 
     return fechaFormateada;
+
+}
+
+/**
+ * @description Formatea string con el día de emisión que proviene de la API
+ * @param {String} broadcast cadena de texto para formatear (Sundays at 23:00 (JST))
+ * @return {String} String con la fecha formateada
+ */
+function formatearDiaEmision(broadcast) {
+
+    let array = broadcast.split(' ');
+    let dias = {
+
+        Monday: 'Lunes',
+        Tuesdays: 'Martes',
+        Wednesday: 'Miércoles',
+        Thursdays: 'Jueves',
+        Fridays: 'Viernes',
+        Saturdays: 'Sábados',
+        Sundays: 'Domingos'
+
+    }
+
+    console.log(array);
+
+    return `${dias[array[0]]} a las ${array[2]} ${array[3]}`;
+
+}
+
+function formatearTitulo(titulo, origen, final) {
+    let regex = new RegExp(`${origen}`, 'g')
+    return titulo.replace(regex, `${final}`);
+}
+
+function mostrarPagError(error) {
+
+    window.location = `errorPage.html?error=${error}`;
 
 }

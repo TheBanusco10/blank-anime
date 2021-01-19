@@ -10,7 +10,7 @@ function animesDeTemporadaVista(animes, paginacion, busqueda, query) {
     let contenido = '';
 
     let urlHaciaVista = '';
-    let target = '_self';
+    let target = '_blank';
 
     animes.forEach(element => {
 
@@ -19,15 +19,17 @@ function animesDeTemporadaVista(animes, paginacion, busqueda, query) {
 
         if (busqueda) {
             urlHaciaVista = `view.html?anime=${element.title}&query=${query}`;
-            target = '_blank';
         }else {
-            urlHaciaVista = `view.html?anime=${element.title}&pagina=${paginacion.paginaActual}`;
+            // urlHaciaVista = `view.html?anime=${element.title}&pagina=${paginacion.paginaActual}`;
+            urlHaciaVista = `view.html?anime=${element.title}`;
+
         }
 
         // Cambiamos las posibles comillas dobles en el título de un anime a unas simples para evitar
         // errores en la etiqueta "a" de html
-        let regex = /"/g;
-        element.title = element.title.replace(regex, "'");
+        // let regex = /"/g;
+        // element.title = element.title.replace(regex, "'");
+        element.title = formatearTitulo(element.title, '"', "'");
 
         contenido +=  `
     
@@ -91,7 +93,7 @@ function paginacionVista(paginacion) {
 // TODO mostrar horario de emisión, trailers, openings...
 function mostrarAnimeVista(anime) {
     
-    let {image_url, title, synopsis, type, score, airing, rating, genres, aired, title_japanese} = anime;
+    let {image_url, title, synopsis, type, score, airing, rating, genres, aired, title_japanese, broadcast, opening_themes, ending_themes} = anime;
 
     let genresHTML = '';
     genres.forEach(element => {
@@ -102,6 +104,22 @@ function mostrarAnimeVista(anime) {
         `;
     });
 
+    let opening = '';
+    opening_themes.forEach(element => {
+
+        opening += `<p>${formatearTitulo(element, '"', "'")}</p>`;
+    });
+
+    let ending = '';
+    ending_themes.forEach(element => {
+
+        ending += `<p>${formatearTitulo(element, '"', "'")}</p>`;
+        
+    });
+
+    console.log(opening_themes);
+
+    broadcast = formatearDiaEmision(broadcast);
     airing = airing ? 'En emisión' : 'Finalizado';
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
     aired.to = aired.to ? aired.to : 'Desconocido';
@@ -116,6 +134,7 @@ function mostrarAnimeVista(anime) {
                 </div>
                 <p class="text-bold">${rating}</p>
                 <p class="text-bold"><i class="fas fa-calendar-week icono"></i>${formatearFecha(aired.from)} / ${formatearFecha(aired.to)}</p>
+                <p class="text-bold"><i class="fas fa-calendar-week icono"></i>${broadcast}</p>
                 <p class="text-bold">${airing}</p>
         </div>
         <div class="eight columns" id="textoContenedor">
@@ -127,6 +146,27 @@ function mostrarAnimeVista(anime) {
                 <div class="twuelve columns generos">
 
                     ${genresHTML}
+                
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="twuelve columns">
+
+                    <h3 class="text-center">Más información</h3>
+                
+                </div>
+
+                <div class="twuelve columns canciones">
+
+                    <h5 class="text-center"><i class="fas fa-music icono"></i>Opening</h5>
+
+                    ${opening}
+
+                    <h5 class="text-center"><i class="fas fa-music icono"></i>Ending</h5>
+
+                    ${ending}
                 
                 </div>
 
