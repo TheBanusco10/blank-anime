@@ -134,7 +134,7 @@ function mostrarAnimeVista(anime) {
                 </div>
                 <p class="text-bold">${rating}</p>
                 <p class="text-bold"><i class="fas fa-calendar-week icono"></i>${formatearFecha(aired.from)} / ${formatearFecha(aired.to)}</p>
-                <p class="text-bold"><i class="fas fa-calendar-week icono"></i>${broadcast}</p>
+                <p class="text-bold"><i class="fas fa-clock icono"></i>${broadcast}</p>
                 <p class="text-bold">${airing}</p>
         </div>
         <div class="eight columns" id="textoContenedor">
@@ -284,5 +284,19 @@ function mostrarMangaVista(manga) {
     
     
     `; 
+
+}
+
+function calendarioVista(animes) {
+
+    let contenido = '';
+
+    animes.forEach(element => {
+
+        contenido += `<p>${element.title}</p>`;
+
+    });
+
+    return contenido;
 
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Anime ¡Información sobre anime y manga!</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/calendario.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+    <script src="src/modelo.js"></script>
+    <script src="src/vistas.js"></script>
+    <script src="src/controlador.js"></script>
+    <script src="src/calendario.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row headerContenedor">
+                <div class="four columns">
+                    <h1 id="pagTitulo">
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="logo">
+                        </a>
+                    </h1>
+                </div>
+                <div class="eigth colums">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="calendar.html">Calendario</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container" id="calendario">
+
+        <h2 class="text-center">Calendario de anime de temporada</h2>
+
+        <div id="calendarioContenido">
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/error.svg" alt="imagen">
+                </div>
+                <div class="textoImagen">
+                    <p class="titulo">Titulo de anime</p>
+                    <p class="subtitulo">Episodio 12 a las 17:00</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="twuelve columns footerContenedor">
+                    <section id="sobre">
+                        <p>Busca información sobre Anime o Manga
+                            <br>
+                            Desarrollado por David Jiménez &copy; 2021
+                        </p>
+                    </section>
+                    <section id="documentacion">
+                        <p>Código abierto <a href="https://github.com/TheBanusco10/blank-anime" target="_blank">GitHub</a>
+                            <br>
+                            Uso de la <a href="https://jikan.moe/" target="_blank">API de Jikan</a>
+                        </p>
+                    </section>
+                    <div class="twuelve columns">
+                        <section id="versionAppSection">
+                            <p class="text-center" id="versionApp"></p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

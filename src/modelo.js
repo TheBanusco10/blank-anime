@@ -27,7 +27,7 @@ function cargarVersionApp() {
  * @description Función para buscar información de un anime
  * @param {String} busqueda Anime o manga a buscar
  * @param {String} tipo anime o manga
- * @return {Promise}
+ * @returns {Promise}
  */
 async function getInformacion(busqueda, tipo) {
 
@@ -132,7 +132,7 @@ function ocultarCarga() {
 /**
  * @description Formatea la fecha en formato 'es'
  * @param {String} fecha Fecha a formatear
- * @return {String} string de fecha con formato 'es'. Si la fecha es inválida, devuelve el parámetro pasado a la función
+ * @returns {String} string de fecha con formato 'es'. Si la fecha es inválida, devuelve el parámetro pasado a la función
  */
 function formatearFecha(fecha) {
 
@@ -157,7 +157,7 @@ function formatearFecha(fecha) {
 /**
  * @description Formatea string con el día de emisión que proviene de la API
  * @param {String} broadcast cadena de texto para formatear (Sundays at 23:00 (JST))
- * @return {String} String con la fecha formateada
+ * @returns {String} String con la fecha formateada
  */
 function formatearDiaEmision(broadcast) {
 
@@ -180,6 +180,13 @@ function formatearDiaEmision(broadcast) {
 
 }
 
+/**
+ * 
+ * @param {String} titulo título a formatear
+ * @param {String} origen RegExp a buscar
+ * @param {String} final string por el que se reemplaza
+ * @returns {String} título formateado
+ */
 function formatearTitulo(titulo, origen, final) {
     let regex = new RegExp(`${origen}`, 'g')
     return titulo.replace(regex, `${final}`);
@@ -188,5 +195,18 @@ function formatearTitulo(titulo, origen, final) {
 function mostrarPagError(error) {
 
     window.location = `errorPage.html?error=${error}`;
+
+}
+
+/**
+ * @description Devuelve el calendario de emisión del día pasado por parámetro
+ * @param {String} dia Día de la semana para buscar EN INGLÉS
+ * @returns {Promise} promise
+ */
+async function getCalendario(dia) {
+
+    let response = await fetch(`${API_BASE}schedule/${dia}`);
+
+    return await response.json();
 
 }

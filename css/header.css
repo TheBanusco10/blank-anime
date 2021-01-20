@@ -96,13 +96,30 @@ header img {
     line-height: 0;
 }
 
-/* @media (min-width: 769px) {
+nav ul li {
+    list-style: none;
 
-    .headerContenedor label {
-        display: none;
-    }
+    margin-top: 5rem;
 
-} */
+}
+
+nav ul li a {
+
+    text-decoration: none;
+    color: white;
+
+    padding: 10px;
+
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s linear;
+
+}
+
+nav ul li a:hover {
+
+    border-bottom: 2px solid aqua;
+
+}
 
 @media (max-width: 768px) {
 
@@ -115,6 +132,16 @@ header img {
     .headerContenedor {
     
         justify-content: space-between;
+    
+    }
+
+}
+
+@media (min-width: 468px) {
+
+    .headerContenedor {
+    
+        flex-flow: row;
     
     }
 

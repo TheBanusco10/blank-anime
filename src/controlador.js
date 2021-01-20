@@ -38,3 +38,9 @@ function mostrarResultadosBusquedaControlador(resultados, query, opcionSeleccion
 
 }
 
+function calendarioControlador(animes) {
+
+    document.getElementById('calendarioContenido').innerHTML += calendarioVista(animes);
+
+}
+

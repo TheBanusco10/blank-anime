@@ -1,0 +1,49 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-flow: row;
+
+    height: 100px;
+
+    background-color: rgb(204, 204, 204);
+
+    border-radius: 20px
+}
+
+.card .img {
+
+    margin: 2rem;
+
+}
+
+.card img {
+
+    width: 100px;
+    height: 100%;
+
+}
+
+.card .textoImagen {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    align-content: center;
+
+}
+
+.card .titulo {
+
+    font-weight: bold;
+    width: 100%;
+
+    margin: 0;
+
+}
+
+.card .subtitulo {
+
+    margin: 0;
+
+}
