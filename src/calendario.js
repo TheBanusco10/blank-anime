@@ -2,10 +2,11 @@ window.onload = () => {
 
     // let calendarioContenido = document.getElementById('calendarioContenido');
 
-    // getCalendario('tuesday')
+    // getCalendario('monday')
     //     .then( data => {
 
-    //         calendarioControlador(data.tuesday);
+    //         calendarioControlador(data.monday);
+    //         // console.log(data.monday);
 
     //     });
 

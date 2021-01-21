@@ -293,7 +293,19 @@ function calendarioVista(animes) {
 
     animes.forEach(element => {
 
-        contenido += `<p>${element.title}</p>`;
+        contenido += `
+        <div class="card">
+            <a>
+                <div class="img">
+                    <img src="${element.image_url}" alt="imagen">
+                </div>
+                <div class="textoImagen">
+                    <p class="titulo">${element.title}</p>
+                    <p class="subtitulo">Episodio 12 a las 17:00</p>
+                </div>
+            </a>
+        </div>`
+    ;
 
     });
 
