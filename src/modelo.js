@@ -164,9 +164,9 @@ function formatearDiaEmision(broadcast) {
     let array = broadcast.split(' ');
     let dias = {
 
-        Monday: 'Lunes',
+        Mondays: 'Lunes',
         Tuesdays: 'Martes',
-        Wednesday: 'Miércoles',
+        Wednesdays: 'Miércoles',
         Thursdays: 'Jueves',
         Fridays: 'Viernes',
         Saturdays: 'Sábados',
@@ -200,12 +200,11 @@ function mostrarPagError(error) {
 
 /**
  * @description Devuelve el calendario de emisión del día pasado por parámetro
- * @param {String} dia Día de la semana para buscar EN INGLÉS
  * @returns {Promise} promise
  */
-async function getCalendario(dia) {
+async function getCalendario() {
 
-    let response = await fetch(`${API_BASE}schedule/${dia}`);
+    let response = await fetch(`${API_BASE}schedule`);
 
     return await response.json();
 

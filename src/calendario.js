@@ -1,13 +1,30 @@
 window.onload = () => {
 
-    // let calendarioContenido = document.getElementById('calendarioContenido');
+    let dias = [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday'
+    ]
 
-    // getCalendario('monday')
-    //     .then( data => {
+    let contenido = document.querySelector('#calendarioContenido');
 
-    //         calendarioControlador(data.monday);
-    //         // console.log(data.monday);
+    getCalendario('monday')
+        .then( data => {
 
-    //     });
+            dias.forEach(element => {
+
+                contenido.innerHTML += `<h4>${element}</h4>`;
+
+                calendarioControlador(data[element]);
+                
+            });
+
+            // console.log(data.monday);
+
+        });
 
 }

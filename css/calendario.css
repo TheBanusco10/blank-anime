@@ -1,7 +1,21 @@
+body {
+
+    background-color: rgb(231, 231, 231);
+
+}
+
 #calendario h2 {
     text-align: center;
 
     margin-top: 2rem;
+}
+
+h4 {
+
+    width: 100%;
+    text-transform: capitalize;
+
+    text-align: center;
 }
 
 .card {
@@ -10,7 +24,7 @@
 
     flex-flow: row;
 
-    width: 30%;
+    width: 20%;
     height: 70px;
 
     border: 1px solid rgb(0, 158, 158);
@@ -20,6 +34,8 @@
     margin: 1rem;
 
     transition: all 0.3s linear;
+
+    background-color: white;
 }
 
 .card:hover {
@@ -76,5 +92,7 @@
 
     display: flex;
     flex-wrap: wrap;
+
+    justify-content: center;
 
 }

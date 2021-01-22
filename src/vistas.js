@@ -295,15 +295,13 @@ function calendarioVista(animes) {
 
         contenido += `
         <div class="card">
-            <a>
-                <div class="img">
-                    <img src="${element.image_url}" alt="imagen">
-                </div>
-                <div class="textoImagen">
-                    <p class="titulo">${element.title}</p>
-                    <p class="subtitulo">Episodio 12 a las 17:00</p>
-                </div>
-            </a>
+            <div class="img">
+                <img src="${element.image_url}" alt="imagen">
+            </div>
+            <div class="textoImagen">
+                <p class="titulo">${acortarString(element.title, 40)}</p>
+                <p class="subtitulo">Episodio 12 a las 17:00</p>
+            </div>
         </div>`
     ;
 
