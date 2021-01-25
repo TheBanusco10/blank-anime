@@ -204,6 +204,8 @@ function mostrarPagError(error) {
  */
 async function getCalendario() {
 
+    mostrarCarga();
+
     let response = await fetch(`${API_BASE}schedule`);
 
     return await response.json();

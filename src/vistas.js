@@ -300,12 +300,14 @@ function calendarioVista(animes) {
             </div>
             <div class="textoImagen">
                 <p class="titulo">${acortarString(element.title, 40)}</p>
-                <p class="subtitulo">Episodio 12 a las 17:00</p>
             </div>
         </div>`
     ;
 
     });
+
+    // <p class="subtitulo">Episodio 12 a las 17:00</p>
+
 
     return contenido;
 
