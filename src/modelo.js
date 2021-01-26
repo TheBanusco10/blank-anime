@@ -51,8 +51,6 @@ function getAnimeTemporada() {
         .then (data => {
             let animes = [];
 
-            console.log(data);
-
             ocultarCarga();
             paginar(animes, data.anime, paginacion);
             animesDeTemporadaControlador(animes, paginacion);
@@ -173,8 +171,6 @@ function formatearDiaEmision(broadcast) {
         Sundays: 'Domingos'
 
     }
-
-    console.log(array);
 
     return `${dias[array[0]]} a las ${array[2]} ${array[3]}`;
 

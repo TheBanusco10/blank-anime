@@ -117,8 +117,6 @@ function mostrarAnimeVista(anime) {
         
     });
 
-    console.log(opening_themes);
-
     broadcast = formatearDiaEmision(broadcast);
     airing = airing ? 'En emisión' : 'Finalizado';
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';

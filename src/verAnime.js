@@ -38,8 +38,6 @@ document.title = `Blank Anime - ${animeTexto}`;
                     .then(data => {
                         
                         ocultarCarga();
-
-                        console.log(data);
                         
                         mostrarAnimeOMangaControlador(data, tipo, animeTexto);
                         

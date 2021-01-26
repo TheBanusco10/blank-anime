@@ -35,8 +35,6 @@ window.onload = () => {
 
             ocultarCarga();
 
-            // console.log(data.monday);
-
         });
 
 }
