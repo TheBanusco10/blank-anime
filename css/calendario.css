@@ -56,6 +56,15 @@ h4 {
     border-bottom: 1px solid rgb(180, 180, 180);
 }
 
+a {
+
+    width: 300px;
+
+    margin: 1rem;
+
+    text-decoration: none;
+}
+
 .card {
     display: flex;
     flex-wrap: wrap;
@@ -66,8 +75,6 @@ h4 {
     height: 70px;
 
     border-radius: 5px;
-
-    margin: 1rem;
 
     transition: all 0.2s linear;
 
@@ -137,9 +144,18 @@ h4 {
 
     justify-content: center;
 
+    max-width: 1500px;
+
 }
 
-@media (min-width: 768px) {
+#calendarioSeccion {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+/* @media (min-width: 768px) {
 
     .separador {
         width: 600px;
@@ -157,4 +173,4 @@ h4 {
         width: 20%;
     }
 
-}
+} */

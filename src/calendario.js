@@ -1,15 +1,5 @@
 window.onload = () => {
 
-    // let dias = [
-    //     'monday',
-    //     'tuesday',
-    //     'wednesday',
-    //     'thursday',
-    //     'friday',
-    //     'saturday',
-    //     'sunday'
-    // ]
-
     let dias = {
         monday: 'Lunes',
         tuesday: 'Martes',
@@ -23,10 +13,6 @@ window.onload = () => {
     let diasIngles = Object.keys(dias);
 
     let contenido = document.querySelector('#calendarioContenido');
-
-    // diasIngles.forEach(element => {
-    //     console.log(element, dias[element]);
-    // });
 
     getCalendario('monday')
         .then( data => {
