@@ -119,7 +119,7 @@ function mostrarAnimeVista(anime) {
 
     console.log(opening_themes);
 
-    broadcast = formatearDiaEmision(broadcast);
+    broadcast = broadcast ? formatearDiaEmision(broadcast) : 'Deconocido';
     airing = airing ? 'En emisión' : 'Finalizado';
     synopsis = synopsis ? synopsis : 'No hay una descripción disponible en estos momentos.';
     aired.to = aired.to ? aired.to : 'Desconocido';
