@@ -51,8 +51,6 @@ function getAnimeTemporada() {
         .then (data => {
             let animes = [];
 
-            console.log(data);
-
             ocultarCarga();
             paginar(animes, data.anime, paginacion);
             animesDeTemporadaControlador(animes, paginacion);

@@ -1,5 +1,7 @@
 window.onload = () => {
 
+    cargarVersionApp();
+
     let dias = {
         monday: 'Lunes',
         tuesday: 'Martes',
