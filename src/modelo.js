@@ -142,8 +142,9 @@ function formatearFecha(fecha) {
     let fechaObjeto = new Date(fecha);
 
     // Añadimos 0 a la izquierda si es necesario en el día y mes
+    // Se comprueba la fecha antes pero luego le sumamos por lo que puede salir +10
     let dia = fechaObjeto.getDate() < 10 ? `0${fechaObjeto.getDate()}` : fechaObjeto.getDate();
-    let mes = fechaObjeto.getMonth() < 10 ? `0${fechaObjeto.getMonth() + 1}` : fechaObjeto.getMonth() + 1;
+    let mes = fechaObjeto.getMonth() + 1 < 10 ? `0${fechaObjeto.getMonth() + 1}` : fechaObjeto.getMonth() + 1;
 
     fechaFormateada = `${dia}-${mes}-${fechaObjeto.getFullYear()}`;
     
